@@ -28,16 +28,23 @@ def subProcessRun():
     sub2=sub1.split("\n")
     for i in sub2:
         print (i.split()[2]," hello bhai ",i.split()[1] )
+import subprocess
+import os
 
 
 
 
-
-
+def fileParsing():
+    filename = "./100000_sales_records.csv"
+    with open(filename) as file_object:
+        for i in file_object:
+            print(i.split(",")[1])
  #   my_string='_coreml:*:280:280:CoreML Services:/var/empty:/usr/bin/false'
   #  print(my_string.split(sep=":")[0])
 
 if __name__ == '__main__':
     #myfunc()
    # newfunc()
-    subProcessRun()
+    #subProcessRun()
+    #checkFormatF1()
+    fileParsing()
