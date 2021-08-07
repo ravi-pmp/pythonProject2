@@ -13,3 +13,11 @@ def split_in_columns(message=message):
     for line in message.split("\n"):
         line.join('|')
         print(line)
+
+
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+k = s.connect(("www.google.com", int("449")))
+print(type(k))
+if k is None:
+    print(f"port open")
