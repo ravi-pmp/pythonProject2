@@ -1,5 +1,9 @@
-from string import ascii_lowercase
-
+'''strip off any leading spaces,
+check if the first character is lowercase,
+if so, split the line into words and get the last word,
+strip off BOTH the trailing dot (.) and exclamation mark (!) from this last word,
+and finally add it to the results list.'''
+import re
 text = """
 One really nice feature of Python is polymorphism: using the same operation
 on different types of objects.
@@ -14,14 +18,17 @@ but here is the kicker: you can use this on a list too!
 and now you know about slicing from the end as well :)
 keep enjoying our bites!
 """
-text1 = [line.strip() for line in text.split()]
-print(text1)
-linelist = []
+mylist = []
+pattern = re.compile(r'^[a-z]', re.DOTALL)
 for line in text.split("\n"):
-    linelist.append(line)
+    if pattern.search(line.strip()):
+        mylist.append (line.split()[-1].rstrip(".!"))
 
-for line1 in linelist:
-    print(line1)
+print(mylist)
+
+
+
+
 
 
 
